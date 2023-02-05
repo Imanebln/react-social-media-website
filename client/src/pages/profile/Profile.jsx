@@ -31,10 +31,14 @@ function Profile() {
         <div className="profileRightTop">
             <div className="profileCover">
                 <img className='profileCoverImg' 
-                src={user.coverPicture || `${publicFolder}person/noCover.png`} 
+                src={user.coverPicture 
+                ? publicFolder + user.coverPicture
+                : `${publicFolder}person/noCover.png`} 
                 alt="" />
                 <img className='profileUserImg' 
-                  src={user.profilePicture || `${publicFolder}person/noAvatar.png`} 
+                  src={user.profilePicture 
+                  ? publicFolder + user.profilePicture
+                  : `${publicFolder}person/noAvatar.png`} 
                 alt="" />
             </div>
 

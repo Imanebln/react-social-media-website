@@ -11,7 +11,7 @@ function Login() {
     const password = useRef();
 
     // get the dispatch
-    const {user, isFetching, error, dispatch} = useContext(AuthContext);
+    const {isFetching, dispatch} = useContext(AuthContext);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -21,7 +21,6 @@ function Login() {
         }, dispatch)
     };
 
-    console.log(user);
 
   return (
     <div className='login'>

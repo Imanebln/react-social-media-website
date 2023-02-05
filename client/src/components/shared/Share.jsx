@@ -7,6 +7,7 @@ import LabelIcon from '@mui/icons-material/Label';
 import RoomIcon from '@mui/icons-material/Room';
 import {AuthContext} from '../../context/AuthContext';
 import axios from 'axios';
+import { instance } from '../../api-calls';
 
 function Share() {
 
@@ -19,7 +20,7 @@ function Share() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPost = {
-      UserId: user._id,
+      userId: user._id,
       desc: desc.current.value
     }
     if(file){
@@ -29,16 +30,23 @@ function Share() {
       data.append("name", filename);
       newPost.img = filename;
       console.log(newPost);
+      console.log(file);
+      for(const [key, value] of data){
+        console.log(key, value);
+      }
+      console.log(data);
+      
       try{
-        await axios.post("/upload", data);
+        await axios.post("/upload", data).then(res => console.log(res));
       }catch(err){
         console.log(err);
       }
     }
     try{
       await axios.post("/posts", newPost)
+      window.location.reload();
     }catch(error){
-      console.log(error.response.data)
+      console.log(error)
     }
   }
 

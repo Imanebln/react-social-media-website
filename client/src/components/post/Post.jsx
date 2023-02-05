@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './post.css';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import {format} from 'timeago.js';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
+import { format } from 'timeago.js'
 
 function Post({post}) {
 
@@ -69,8 +69,8 @@ function Post({post}) {
 
             <div className="postBottom">
                 <div className="postBottomLeft">
-                    <img className='likeIcon' src="/assets/like.png" onClick={likeHandler} alt="" />
-                    <img className='likeIcon' src="/assets/heart.png" onClick={likeHandler} alt="" />
+                    <img className='likeIcon' src={publicFolder+"like.png"} onClick={likeHandler} alt="" />
+                    <img className='likeIcon' src={publicFolder+"heart.png"} onClick={likeHandler} alt="" />
                     <span className="postLikeCounter"> {like} people like it</span>
                 </div>
                 <div className="postBottomRight">
